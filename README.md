@@ -76,7 +76,12 @@ echo Chartist::widget($assetManager, $this)
 The chart type is specified by the ```ChartType``` enum; Chartist supports ```Bar```, ```Line```, and ```Pie``` charts.
 
 See the [Chartist documentation](https://chartist.dev/examples) for details on ```$data```, ```$options```,
-and ```$responsiveOptions```; these arrays are JSON encoded.
+and ```$responsiveOptions```; the widget values are arrays that are JSON encoded when the widget is rendered.
+
+Chartist does one thing; draws charts. Additional functionality can be added by JavaScript,
+e.g. event handlers, animation, etc.
+To help with this the Yii Chartist widget sets a JavaScript constant that is the chart; the value is the chart's ID;
+the ```getId()``` method provides this value.
 
 ## Styling
 Chartist provides default styles for charts.

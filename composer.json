@@ -1,0 +1,51 @@
+{
+  "name": "beastbytes/yii-chartist",
+  "description": "Chartist JavaScript charting library integration for Yii3",
+  "type": "extension",
+  "keywords": [
+    "Chartist",
+    "chart",
+    "charting",
+    "charts",
+    "yii3"
+  ],
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Chris Yates",
+      "email": "chris.l.yates@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=8.1",
+    "yiisoft/assets": "dev-master",
+    "yiisoft/html": "^3.0",
+    "yiisoft/widget": "^2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0",
+    "roave/security-advisories": "dev-latest",
+    "yiisoft/aliases": "^3.0",
+    "yiisoft/cache": "^3.0",
+    "yiisoft/event-dispatcher": "^1.0",
+    "yiisoft/test-support": "^3.0",
+    "yiisoft/view": "^12.0",
+    "vimeo/psalm": "^6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "BeastBytes\\Yii\\Chartist\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "BeastBytes\\Yii\\Chartist\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "psalm": "psalm",
+    "test": "phpunit --testdox"
+  }
+}

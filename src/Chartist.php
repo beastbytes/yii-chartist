@@ -29,6 +29,7 @@ final class Chartist extends Widget
 
     public function __construct(private readonly AssetManager $assetManager, private readonly WebView $webView)
     {
+        $this->assetManager->register(ChartistAsset::class);
     }
 
     public function addAttributes(array $valuesMap): self
@@ -115,8 +116,6 @@ final class Chartist extends Widget
         if (empty($this->data)) {
             throw new RuntimeException(self::CHART_DATA_NOT_SET);
         }
-
-        $this->assetManager->register(ChartistAsset::class);
 
         $js = sprintf(
             "import { %s } from \"%s\";\n",

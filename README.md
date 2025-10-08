@@ -65,6 +65,7 @@ use Yiisoft\View\WebView;
  */
  
 echo Chartist::widget($assetManager, $this)
+    ->id('my-chart')
     ->type(ChartType::Line)
     ->data($data)
     ->options($options)
@@ -72,17 +73,67 @@ echo Chartist::widget($assetManager, $this)
     ->render()
 ;
 ```
+The chart type is specified by the `ChartType` enum; Chartist supports `Bar`, `Line`, and `Pie` charts.
 
-The chart type is specified by the ```ChartType``` enum; Chartist supports ```Bar```, ```Line```, and ```Pie``` charts.
+See the [Chartist documentation](https://chartist.dev/examples) and source code for details on `$data`, `$options`,
+and `$responsiveOptions`; the widget values are PHP arrays that are encoded when the widget is rendered.
 
-See the [Chartist documentation](https://chartist.dev/examples) for details on ```$data```, ```$options```,
-and ```$responsiveOptions```; the widget values are arrays that are JSON encoded when the widget is rendered.
+> **Tip:** 
+> 
+> The widget has a convenience function, `Chartist::JsExpression()`,
+> to allow JavaScript expressions to be correctly encoded; example:
+```php
+'options' => [
+    'labelInterpolationFnc' => Chartist::jsExpression('value => String(value)[0]')
+],
+```
+> is encoded as `{"labelInterpolationFnc":value => String(value)[0]}`
 
-Chartist does one thing; draws charts. Additional functionality can be added by JavaScript,
-e.g. event handlers, animation, etc.
-To help with this the Yii Chartist widget sets a JavaScript constant that is the chart; the value is the chart's ID;
-the ```getId()``` method provides this value.
+Chartist does one thing; draws charts. Additional functionality.
+e.g. event handlers, animation, etc. can be added by JavaScript,
+
+To help with this the Yii Chartist widget sets a JavaScript constant whose name is the chart's _id_ in snake_case,
+and value is the chart instance; the ```getId()``` method provides this value;
+example: an _id_ of `my-chart` results in a JavaScript constant named `my_chart`.
+
+> **Tip:**
+>
+> If the application does not set the widget _id_, the widget will generate a unique _id_ of the form `chart_\d{15}`.
+> The generated id will change on each HTTP request.
+
 
 ## Styling
 Chartist provides default styles for charts.
 To change styles simply add the appropriate rules to your CSS; note that it is SVG that is being styled.
+
+## API
+### id(string $id): self
+Optional
+
+Sets the widget id. If not set, the widget generates a unique id of the form `chart_\d{15}`.
+
+### data(array $data): self
+Required
+
+Chart data and labels.
+
+### getId(): string
+Returns the widget id. If the id is not set it is generated.
+
+### options(array $options): self
+Optional
+
+Chart options.
+
+### responsiveOptions(array $responsiveOptions): self
+Optional
+
+Options for responsive designs.
+
+### type(ChartType $type): self
+Required
+
+The chart type.
+
+### static jsExpression(string $value): string
+Marks the value as a JavaScript expression to ensure correct encoding.

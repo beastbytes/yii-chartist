@@ -114,7 +114,6 @@ final class Chartist extends Widget
 
         $this->assetManager->register(ChartistAsset::class);
 
-        $js = sprintf("import '%s';\n", 'chartist/dist/index.css');
         $js = sprintf(
             "import { %s } from '%s';\n",
             $this->type,

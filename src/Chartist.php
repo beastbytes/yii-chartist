@@ -10,12 +10,16 @@ use Yiisoft\Assets\AssetManager;
 use Yiisoft\Assets\Exception\InvalidConfigException;
 use Yiisoft\Html\Html;
 use Yiisoft\Json\Json;
+use Yiisoft\Strings\Inflector;
 use Yiisoft\View\WebView;
 use Yiisoft\Widget\Widget;
 
 final class Chartist extends Widget
 {
+    public const CHART_DATA_NOT_SET = 'Chart data must be set';
+    public const CHART_TYPE_NOT_SET = 'Chart type must be set';
     public const ID_PREFIX = 'chart_';
+    private const JS_EXPRESSION = '*!*';
 
     private ?string $type = null;
     private array $attributes = [];
@@ -106,28 +110,45 @@ final class Chartist extends Widget
     private function registerJs(): void
     {
         if ($this->type === null) {
-            throw new RuntimeException('Chart type must be set');
+            throw new RuntimeException(self::CHART_TYPE_NOT_SET);
         }
         if (empty($this->data)) {
-            throw new RuntimeException('Chart data must be set');
+            throw new RuntimeException(self::CHART_DATA_NOT_SET);
         }
 
         $this->assetManager->register(ChartistAsset::class);
 
         $js = sprintf(
-            "import { %s } from '%s';\n",
+            "import { %s } from \"%s\";\n",
             $this->type,
-            $this->assetManager->getUrl(ChartistAsset::class, 'index.js')
+            $this->assetManager->getUrl(ChartistAsset::class, 'index.js'),
         );
         $js .= sprintf(
-            'const %1$s = new %2$s(\'#%1$s\', %3$s, %4$s, %5$s);' . "\n",
-            $this->getId(),
+            "const %s = new %s(\"#%s\", %s, %s, %s);\n",
+            (new Inflector())->toSnakeCase($this->getId()),
             $this->type,
-            Json::encode($this->data),
-            Json::encode($this->options),
-            Json::encode($this->responsiveOptions)
+            $this->getId(),
+            $this->encode($this->data),
+            $this->encode($this->options),
+            $this->encode($this->responsiveOptions),
         );
 
         $this->webView->registerScriptTag(Html::script($js, ['type' => 'module']));
+    }
+
+    private function encode(mixed $data): string
+    {
+        return strtr(
+            Json::encode($data),
+            [
+                '"' . self::JS_EXPRESSION => '',
+                self::JS_EXPRESSION . '"' => '',
+            ]
+        );
+    }
+
+    public static function jsExpression(string $expression): string
+    {
+        return self::JS_EXPRESSION . $expression . self::JS_EXPRESSION;
     }
 }

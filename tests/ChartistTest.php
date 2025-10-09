@@ -40,7 +40,10 @@ class ChartistTest extends TestCase
         $container = new SimpleContainer(
             [
                 AssetManager::class => new AssetManager($aliases, $loader),
-                WebView::class => new WebView(__DIR__ . '/public/view', new SimpleEventDispatcher()),
+                WebView::class => new WebView(
+                    __DIR__ . DIRECTORY_SEPARATOR . 'support' . DIRECTORY_SEPARATOR . 'views',
+                    new SimpleEventDispatcher()
+                ),
             ]
         );
 
@@ -49,7 +52,6 @@ class ChartistTest extends TestCase
         $this->view = $container
             ->get(WebView::class)
             ->setParameters(['assetManager' => $container->get(AssetManager::class)])
-            ->withBasePath(__DIR__ . DIRECTORY_SEPARATOR . 'support' . DIRECTORY_SEPARATOR . 'views')
         ;
     }
 

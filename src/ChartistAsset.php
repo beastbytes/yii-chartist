@@ -15,6 +15,5 @@ class ChartistAsset extends AssetBundle
         'type' => 'module',
     ];
     public ?int $jsPosition = WebView::POSITION_END;
-    public array $jsStrings = [];
     public ?string $sourcePath = '@npm/chartist/dist';
 }

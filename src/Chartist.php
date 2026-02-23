@@ -53,13 +53,6 @@ final class Chartist extends Widget
         return $new;
     }
 
-    public function id(string $value): self
-    {
-        $new = clone $this;
-        $new->attributes['id'] = $value;
-        return $new;
-    }
-
     public function data(array $data): self
     {
         $new = clone $this;
@@ -74,6 +67,13 @@ final class Chartist extends Widget
         }
 
         return $this->attributes['id'];
+    }
+
+    public function id(string $value): self
+    {
+        $new = clone $this;
+        $new->attributes['id'] = $value;
+        return $new;
     }
 
     public function options(array $options): self

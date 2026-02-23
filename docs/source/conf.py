@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Mermaid Packet'
+project = 'Yii Chartist'
 copyright = '2026, BeastBytes'
 author = 'BeastBytes'
 

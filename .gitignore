@@ -1,6 +1,11 @@
 # phpstorm project files
 .idea
 
+# Sphinx
+/docs/build
+# Python Virtual Envirnment
+.venv
+
 # netbeans project files
 nbproject
 
@@ -16,15 +21,6 @@ nbproject
 # windows thumbnail cache
 Thumbs.db
 
-# .env
-.env*
-
-# Generated content
-/generated/*
-/resources/assets/css
-/resources/item_images
-/resources/views/item_data/*.latte
-
 # composer vendor dir
 /vendor
 
@@ -34,29 +30,26 @@ composer.phar
 # Mac DS_Store Files
 .DS_Store
 
-# phpunit
+# phpunit itself is not needed
 phpunit.phar
 .phpunit.result.cache
+/.phpunit.cache
 
 # local phpunit config
 /phpunit.xml
 
+# logs
+/logs
+
 # NPM packages
 /node_modules
+.env
 
 # Codeception
 c3.php
-/tests/_output
-/tests/Support/_generated
-/tests/Support/Data/testDB.sqlite
-/tests/Support/Data/testDB.sqlite_snapshot
 
-# Web
-/public/assets
-/public/fonts
-/public/images
+# Composer
+composer.lock
 
-
-# Yii
-.merge-plan.php
-/runtime
+# phpDocumentor cache
+/docs/cache

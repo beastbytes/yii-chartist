@@ -1,7 +1,7 @@
 Installation
 ============
 
-Yii Chartist
+Yii-Chartist
 ------------
 
 The preferred way to install this package is through `composer <https://getcomposer.org/download/>`__.

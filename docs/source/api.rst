@@ -27,7 +27,9 @@ Yii Chartist API documentation
 
         Sets the widget id
 
-        If not called the widget generates a unique id of the form `chart_\d{15}`
+        If not called the widget generates a unique id that matches the regex `chart_\\d{15}`
+
+        See :php:meth:`Chartist::getId`
 
         :param string $id: The widget id
         :returns: A new Chartist instance with the id
@@ -41,6 +43,8 @@ Yii Chartist API documentation
         :rtype: Chartist
 
     .. php:method:: getId()
+
+        See :php:meth:`Chartist::id`
 
         :returns: The widget id
         :rtype: string

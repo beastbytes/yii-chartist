@@ -4,8 +4,8 @@ Usage
 The Yii Chartist widget is used in a view or in another widget;
 usage is the same in both cases; the example below shows how to use the widget in a view.
 
-The widget registers ChartistAsset with the asset manager and the Chartist JavaScript in the view, and renders
-the Chartist `div`.
+The widget registers `ChartistAsset` with the asset manager and the Chartist JavaScript with the view,
+and renders the Chartist `div`.
 
 .. code-block:: php
     use Loytyi\Chartist\Chartist;
@@ -35,13 +35,18 @@ The chart type is specified by the `ChartType` enum; Chartist supports `Bar`, `L
 See the `Chartist documentation <https://chartist.dev/examples>`__ and source code for details on `$data`, `$options`,
 and `$responsiveOptions`; the widget values are PHP arrays that are encoded when the widget is rendered.
 
-.. note::
+.. tip::
     The widget has a convenience function, `Chartist::JsExpression()`,
-    to allow JavaScript expressions to be correctly encoded; example:
+    to allow JavaScript expressions to be correctly encoded.
+
+    Example:
 
     `'options' => ['labelInterpolationFnc' => Chartist::jsExpression('value => String(value)[0]')]`
 
     is encoded as `{"labelInterpolationFnc":value => String(value)[0]}`
+
+Additional Functionality
+------------------------
 
 Chartist does one thing; draws charts.
 Additional functionality, e.g. event handlers, animation, etc. can be added by JavaScript,

@@ -104,7 +104,7 @@ class ChartistTest extends TestCase
 
         $this->assertSame(
             str_replace("\r\n", "\n", $expected),
-            str_replace("\r\n", "\n", $this->view->render('//view', ['chart' => $chart]))
+            str_replace("\r\n", "\n", $this->view->render('//view', ['content' => $chart]))
         );
     }
 

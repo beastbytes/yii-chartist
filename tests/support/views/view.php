@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /* @var $assetManager Yiisoft\Assets\AssetManager */
-/* @var $chart string */
+/* @var $content string */
 /* @var $this Yiisoft\View\WebView */
 
 $this->addJsFiles($assetManager->getJsFiles());
@@ -18,7 +18,7 @@ $this->addJsStrings($assetManager->getJsStrings());
 </head>
 <body>
 <?php $this->beginBody(); ?>
-<?= $chart ?>
+<?= $content ?>
 
 <?php $this->endBody(); ?>
 

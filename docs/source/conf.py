@@ -16,7 +16,14 @@ author = 'BeastBytes'
 extensions = [
     'sphinxcontrib.phpdomain'
 ]
+]
 
+from sphinx.highlighting import lexers
+from pygments.lexers.web import PhpLexer
+
+lexers['php'] = PhpLexer(startinline=True, linenos=1)
+
+highlight_language = 'php'
 templates_path = ['_templates']
 exclude_patterns = []
 

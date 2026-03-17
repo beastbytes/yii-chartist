@@ -8,8 +8,8 @@
 Yii-Chartist
 ============
 
-Yii-Chartist is a widget that integrates the `Chartist <https://chartist.dev>`__ JavaScript charting library
-with Yii3.
+Yii-Chartist is a widget that integrates the `Chartist JavaScript charting library <https://chartist.dev>`__
+with the  `Yii3 PHP framework <https://www.yiiframework.com/>`__.
 
 .. toctree::
     :maxdepth: 2
@@ -23,4 +23,4 @@ with Yii3.
 
    `Chartist <https://chartist.dev>`__
 
-   `Yii3 <https://yiiframework.com>`__
+    `Yii3 <https://www.yiiframework.com/>`__

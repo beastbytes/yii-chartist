@@ -16,7 +16,6 @@ author = 'BeastBytes'
 extensions = [
     'sphinxcontrib.phpdomain'
 ]
-]
 
 from sphinx.highlighting import lexers
 from pygments.lexers.web import PhpLexer

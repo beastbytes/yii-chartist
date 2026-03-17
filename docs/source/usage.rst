@@ -9,8 +9,8 @@ and renders the Chartist `div`.
 
 .. code-block:: php
 
-    use Loytyi\Chartist\Chartist;
-    use Loytyi\Chartist\ChartType;
+    use BeastBytes\Yii\Chartist\Chartist;
+    use BeastBytes\Yii\Chartist\ChartType;
     use Yiisoft\Assets\AssetManager;
     use Yiisoft\View\WebView;
 

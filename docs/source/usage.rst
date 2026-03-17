@@ -8,6 +8,7 @@ The widget registers `ChartistAsset` with the asset manager and the Chartist Jav
 and renders the Chartist `div`.
 
 .. code-block:: php
+
     use Loytyi\Chartist\Chartist;
     use Loytyi\Chartist\ChartType;
     use Yiisoft\Assets\AssetManager;
